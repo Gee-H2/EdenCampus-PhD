@@ -1,5 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+
+# Jupyter checkpoints (but keep the notebooks themselves)
+.ipynb_checkpoints/
+
+# Large raw data files
+*.nc
+*.grib
+*.h5
 
 # Mac system files
 .DS_Store
 .DS_Store?
 **/.DS_Store
+
+# Keep notebooks, csvs, xlsx, pngs, pdfs
+!*.ipynb
+!*.csv
+!*.xlsx
+!*.png
+!*.pdf
