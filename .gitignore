@@ -1,27 +1,5 @@
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.env
-.venv/
-
-# Jupyter
+.virtual_documents/
 .ipynb_checkpoints/
-*-checkpoint.ipynb
-
-# Large raw data files
-*.nc
-*.grib
-*.h5
-
-# Mac system files
+__pycache__/
 .DS_Store
-.DS_Store?
-**/.DS_Store
-
-# Keep notebooks, csvs, xlsx, pngs, pdfs
-!*.ipynb
-!*.csv
-!*.xlsx
-!*.png
-!*.pdf
+*.pyc

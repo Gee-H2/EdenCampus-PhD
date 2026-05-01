@@ -1,0 +1,40 @@
+Component,Parameter,Value,Unit,Source
+Solar Photovoltaic,Nominal capacity,"1,000",kW,Site assumption
+Solar Photovoltaic,Tilt angle,35,°,Site assumption
+Solar Photovoltaic,Azimuth,180,°,Site assumption
+Solar Photovoltaic,Temperature coeff.,-0.4,%/°C,pvlib default
+Battery Storage (BESS),Power rating,500,kW,4-hr duration
+Battery Storage (BESS),Energy capacity,"2,000",kWh,4-hr duration
+Battery Storage (BESS),Charge efficiency,95,%,Manufacturer
+Battery Storage (BESS),Discharge eff.,95,%,Manufacturer
+Battery Storage (BESS),Round-trip eff.,90.25,%,Computed
+Battery Storage (BESS),Standing loss,0.02,%/hr,Literature
+PCM Thermal Storage,Power rating,200,kW,8-hr duration
+PCM Thermal Storage,Energy capacity,"1,600",kWh,8-hr duration
+PCM Thermal Storage,Charge efficiency,95,%,Paraffin PCM
+PCM Thermal Storage,Discharge eff.,92,%,Paraffin PCM
+PCM Thermal Storage,Round-trip eff.,87.4,%,Computed
+PCM Thermal Storage,Standing loss,0.1,%/hr,Literature
+Electrolyser (PEM),Input power,200,kW,Sized for surplus
+Electrolyser (PEM),LHV efficiency,70,%,Current PEM
+Electrolyser (PEM),Marginal cost,1,£/MWh,O&M
+Hydrogen Tank,Energy capacity,"5,000",kWh,Seasonal sizing
+Hydrogen Tank,Standing loss,0.01,%/hr,Literature
+Fuel Cell (PEM),Output power,100,kW,Backup supply
+Fuel Cell (PEM),LHV efficiency,50,%,Current PEM
+Fuel Cell (PEM),Marginal cost,2,£/MWh,O&M
+Fuel Cell (PEM),H2 round-trip,35,%,Computed
+Heat Pump,Power rating,300,kW,Site sizing
+Heat Pump,Seasonal COP,3.0,-,Air-source
+Heat Pump,Marginal cost,0.5,£/MWh,O&M
+Backup Boiler,Thermal capacity,600,kW,Site sizing
+Backup Boiler,Marginal cost,110,£/MWh,UK gas 2024
+Grid Connection,Import capacity,"2,000",kW,Site limit
+Grid Connection,Export capacity,500,kW,Export agreement
+Grid Connection,Import tariff,280,£/MWh,UK 2024
+Grid Connection,Export tariff,50,£/MWh,SEG
+Grid Connection,Carbon intensity,0.233,kgCO2/kWh,NG ESO 2023
+Site Demand,Peak electrical,681,kW,CIBSE
+Site Demand,Annual electrical,"1,816",MWh,CIBSE
+Site Demand,Peak thermal,755,kW,CIBSE
+Site Demand,Annual thermal,"1,648",MWh,CIBSE
