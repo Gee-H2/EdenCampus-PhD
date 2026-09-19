@@ -70,6 +70,33 @@ def _load_pv_profile(base: str) -> pd.Series:
     return pv_pu
 
 
+def load_pv_profile_for_year(base: str, year: int, time_index=None) -> pd.Series:
+    """
+    Public helper: per-unit PV profile (0–1) for a given committed weather year.
+
+    Used by the sensitivity analysis (weather years 2020–2023). Loads the
+    committed CSV `01_data/weather/eden_campus_<year>.csv` — no live PVGIS.
+    If `time_index` is given, the profile is reindexed onto it.
+    """
+    path = os.path.join(base, f"01_data/weather/eden_campus_{year}.csv")
+    w = pd.read_csv(path, index_col=0, parse_dates=True)
+    if w.index.tz is not None:
+        w.index = w.index.tz_localize(None)
+    w.index = w.index.round("h")
+    w = w[~w.index.duplicated(keep="first")]
+    poa_total = w["poa_direct"] + w["poa_sky_diffuse"] + w["poa_ground_diffuse"]
+    pv_kw = (
+        _PV_CAPACITY_KW
+        * (poa_total / 1000.0)
+        * (1 + _PV_TEMP_COEFF * (w["temp_air"] - 25))
+    ).clip(lower=0)
+    pv_pu = (pv_kw / _PV_CAPACITY_KW).clip(0, 1)
+    if time_index is not None:
+        pv_pu = pv_pu.reindex(time_index).fillna(0)
+    pv_pu.name = "pv_pu"
+    return pv_pu
+
+
 def _load_elec_demand(base: str) -> pd.Series:
     """Electrical demand (kW) from the committed authoritative CSV."""
     path = os.path.join(base, "01_data/demand/eden_campus_demand_2023.csv")
