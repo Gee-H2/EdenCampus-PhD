@@ -165,9 +165,83 @@ queried.]*
 
 ---
 
+## 4.3 Mapping the typology to the Future Energy Scenarios flexibility categories
+
+The value of this typology for the present review is not descriptive but
+functional: it allows each business-park type to be read as a *latent provider*
+of the specific flexibility that the National Energy System Operator's Future
+Energy Scenarios (FES 2025) identifies as necessary for a secure, low-cost net-zero
+system [REF: NESO FES 2025]. FES frames flexibility as a system requirement met by
+a portfolio of sources — distributed storage, consumer-led and demand-side
+flexibility, electric-vehicle smart charging, and industrial-and-commercial (I&C)
+demand shifting — growing sharply to 2030 and 2050 [DATA: insert the FES 2025
+figures from the data workbook — e.g. batteries ≈X GW, LDES ≈X GW, consumer-led
+flexibility ≈X GW by 2030; verify each against the FES 2025 workbook before
+stating]. Business parks are largely absent from the way this flexibility is
+currently enumerated and procured, yet each type in the typology maps onto one or
+more of these FES categories.
+
+The mapping is developed here at the level of *physical and governance capability*
+— what flexibility each type can, in principle, provide. The distinct question of
+*which market routes allow that flexibility to be monetised* is deferred to
+Section 6, and the two should not be conflated: capability is necessary but not
+sufficient for participation.
+
+- **Demand shifting (I&C flexibility).** All park types carry shiftable load
+  (HVAC, refrigeration, process, EV charging), but the shiftable *fraction* and
+  the governance ability to act on it differ. T3 and T5, with coordinated single
+  management, can commit shiftable load directly; T1 and T2 are constrained by the
+  landlord–tenant split and multi-MPAN fragmentation [REF: I&C DSR potential].
+- **Distributed storage.** Behind-the-meter batteries and thermal storage align
+  with the FES distributed-storage category. T2 (large rooftops, space for
+  containerised BESS) and T3 (mandate plus multi-vector demand suited to thermal
+  storage) have the highest latent storage potential.
+- **Consumer-led / demand-side flexibility.** FES's consumer-led category maps to
+  aggregated, controllable estate loads. Coordinated estates (T3, T5) are the
+  natural aggregation unit; fragmented estates require an aggregator to overcome
+  the split-incentive barrier.
+- **EV smart charging.** FES identifies EVs as the single largest flexibility
+  source. Office and campus parking (T1, T3, T5) concentrates workplace charging —
+  a daytime, solar-coincident flexibility resource of direct FES relevance.
+- **Embedded generation.** Rooftop and ground-mount PV (T2, T3) positions parks as
+  distributed generators, not merely flexible loads — the "passive estate to
+  flexible generator" transition of the paper's title.
+
+**Table 3b — Business-park types as FES flexibility providers** (qualitative
+capability: ●●● high, ●● moderate, ● low; ratings are the authors' assessment
+pending the empirical characterisation and must be justified against the stream
+evidence in Section 5).
+
+| Type | Demand shifting (I&C) | Distributed storage | Consumer-led / DSR | EV smart charging | Embedded generation | Overall FES-flexibility fit |
+|---|---|---|---|---|---|---|
+| **T1** Multi-let office | ●● | ● | ●● | ●●● | ● | Moderate — high EV potential, governance-limited |
+| **T2** Industrial & logistics | ●●● | ●●● | ●● | ● | ●●● | High — storage + generation + process shifting |
+| **T3** Innovation campus | ●●● | ●●● | ●●● | ●● | ●● | **Highest — coordinated multi-vector flexibility** |
+| **T4** Retail & leisure | ●● | ● | ●● | ●● | ● | Excluded on governance grounds |
+| **T5** Single-owner campus | ●●● | ●● | ●●● | ●● | ●● | High per-site; limited transferability |
+
+The mapping supports the review's central proposition: the flexibility the FES
+requires is, in substantial part, flexibility that UK business parks are
+structurally positioned to supply. It also identifies *which* types are most
+ready — T2 and T3 on capability grounds, with T3 distinguished by the governance
+coherence needed to act on that capability across multiple vectors. This
+motivates the stream-by-stream review (Section 5), which tests how far the
+existing literature has recognised and quantified this potential, and the
+market-access map (Section 6), which examines whether the routes to monetise it
+actually fit these types.
+
+*[REF/DATA discipline: every ● rating must be defensible from Section 5 stream
+evidence or the empirical characterisation; the FES category figures must be
+taken from the FES 2025 data workbook, not from secondary summaries.]*
+
+---
+
 ## Notes for the researcher (not for submission)
 
 **Priority order to complete this section:**
+0. **Verify FES 2025 flexibility figures** against the NESO FES 2025 data workbook
+   (batteries/LDES/consumer-led/EV/I&C shifting GW by 2030 and 2050). These anchor
+   the Section 4.3 mapping and Section 1 — do not state any GW figure unverified.
 1. **Confirm data access.** Establish which spine datasets you can actually query
    (VOA SCAT, ECRs, ND-NEED, EPC, Heat Networks DB are the key ones). This
    determines whether Table 3 can carry real population counts or stays qualitative.
