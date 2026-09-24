@@ -47,16 +47,34 @@ model — it appears to be a legacy/target number that was never reconciled.
 
 ## Required manuscript corrections
 
-- [ ] Change annual electrical demand **1,816 MWh → 2,401 MWh** in Table 1,
-      the abstract, and the site-description section.
-- [ ] Confirm peak stays at **681.6 kW** (already consistent).
-- [ ] Describe the electrical demand as a **representative / synthetic profile**
-      calibrated to a business-park shape, NOT as metered data — unless real
-      metered Eden Campus data is obtained to replace it.
-- [ ] Describe the thermal demand explicitly as a **modelled** heating-dominated
-      profile (peak 755 kW), not measured.
-- [ ] State that PV is derived from committed PVGIS 2023 data for St Andrews
-      (56.34 °N, −2.80 °E), reproducible offline.
+Status updated 2026-09-24 (commit 958d497). Only items verified done are ticked.
+
+- [x] Change annual electrical demand **1,816 MWh → 2,401 MWh**. Done in the
+      Demand Inputs paragraph of `Paper1_Eden_Campus_Manuscript.docx`. NOTE: the
+      demand figure was found only in that paragraph — it is NOT in Table 1, and
+      the abstract does not state an annual-demand number, so no change was needed
+      there. Verified against the CSV (2,400.9 MWh) and a full-year model run.
+- [x] Also corrected annual **thermal** demand **1,648 MWh → 1,728 MWh** in the
+      same paragraph (modelled series gives 1,727.6 MWh; this was not in the
+      original checklist but was wrong and is now fixed).
+- [x] Confirm peak stays at **681.6 kW** — confirmed unchanged and consistent
+      (manuscript states 681 kW; thermal 755 kW also consistent).
+- [x] Describe the electrical demand as a **representative / synthetic profile**,
+      NOT metered — the Demand Inputs paragraph already states "In the absence of
+      metered hourly site data, electrical and thermal demand profiles were
+      synthesised…". Verified present.
+- [x] Describe the thermal demand explicitly as a **modelled** profile — covered
+      by the same "synthesised" sentence (peak 755 kW).
+- [ ] STILL OPEN — framing inconsistency: the abstract / four-layer-architecture
+      text still describes the digital twin as coupling **"measured site data"**,
+      which contradicts the Demand Inputs paragraph's "in the absence of metered
+      hourly site data". Reconcile this wording before submission so a reviewer
+      does not catch the contradiction.
+- [ ] STILL OPEN — state that PV is derived from committed PVGIS 2023 data for
+      St Andrews (56.34 °N, −2.80 °E), reproducible offline. Not yet verified as
+      present in the manuscript.
+- [x] Peak-reduction headline (S1 = 39.7%): verified reproducible in the
+      full-year model (S0 = 1.4%, S1 = 39.7%); not an error.
 
 ## Open decision for the researcher
 
