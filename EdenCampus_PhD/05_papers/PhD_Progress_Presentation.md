@@ -23,7 +23,7 @@ style: |
 
 **Gift Udoh** · CDT-GIF · Heriot-Watt University / University of St Andrews
 
-Progress review — Paper 1 (modelling) & Paper 1 (RSER review)
+Progress review — the modelling paper (Applied Energy) & the systematic review (RSER)
 
 <!--
 SPEAKER NOTE: One sentence to open. "I'll cover two outputs — the Eden Campus
@@ -108,8 +108,9 @@ adding heat to S0/S1/S3 (boiler-only) raises their cost ~£190k. Boiler resized
 **Changes (honestly):**
 - <span class="hl">Cost ranking flips</span>: S4 cheapest, not S1. The old
   "S1 optimal" was an artefact of the unequal thermal boundary.
-- <span class="hl">Abatement costs</span>: all storage scenarios now
-  <span class="ok">cost-negative</span> (MAC −£551 to −£2,582/tCO₂).
+- <span class="hl">Abatement costs</span>: on total emissions, all storage
+  scenarios still <span class="ok">cost-negative</span> (MAC −£241 to −£2,155/tCO₂);
+  **S2 abates the most CO₂, S4 is cheapest.**
 
 **Still holds (re-verified):**
 - <span class="ok">S1 still saves £71k/yr vs S0</span> (both now carry heat).
@@ -156,8 +157,9 @@ on the tariff signal:
 
 - **Energy-only tariff:** cost-minimising dispatch drives peak imports **+35%**
   (672 → 904 kW) — cheap heat is dispatched without regard to system peak.
-- **Capacity/demand charge:** the same system **reduces** the peak by up to **40%**
-  — the objective now values peak management.
+- **Capacity/demand charge:** the full hybrid (S4) **reduces** the peak by ~**40%**;
+  S2 stays at baseline (the capacity charge rewards peak management where storage
+  can act on it) — the objective now values peak reduction.
 
 ### The "objective-function trap"
 
@@ -193,58 +195,62 @@ evidence that it doesn't matter to the conclusions.
 
 ## Why the limitation doesn't change my conclusions
 
-**Stress test:** ran all five scenarios with demand scaled **0.70× – 1.30×**
-(1,681–3,121 MWh/yr) — bracketing where real data could plausibly land.
+**Stress test (re-run on the corrected symmetric-heat model):** demand scaled
+**0.70× – 1.30×** (1,681–3,121 MWh/yr).
 
 | Conclusion | Across the whole ±30% band |
 |---|---|
-| Cost ranking stable | <span class="ok">YES — ordering preserved at every scale</span> |
-| Peak-reduction pattern | <span class="ok">YES — S1/S4 high, S2/S3 low throughout</span> |
-| Storage beats PV-only | <span class="ok">YES — at every scale</span> |
+| Cost order **S4 < S1 < S2 < S3 < S0** | <span class="ok">YES — unchanged at every scale</span> |
+| Every storage option beats PV-only | <span class="ok">YES</span> |
+| Peak reduction: S1/S4 35–42%, S2/S3 1–12% | <span class="ok">YES</span> |
 
 > Conclusions are **structural**, not artefacts of the demand calibration.
 > Real data will refine magnitudes — it will not reverse the findings.
 
-<span class="small">*Note: stress test was run on the pre-fix model; I will re-run it
-on the corrected symmetric-heat model — the robustness logic is unchanged.*</span>
-
 <!--
-SPEAKER NOTE: This is your shield, but be honest: the committed stress test used the
-asymmetric model, so I've dropped the specific "S1 cost-optimal" line (that changes
-to S4 under the fix) and kept the claims that are basis-independent. Say you'll
-re-run it on the corrected model. If pressed on shape: magnitude robustness shown,
-shape validation is next via the comparison harness.
+SPEAKER NOTE: Re-run on the CORRECTED model (per the follow-up check). S4 cheapest
+at every demand level, order stable, peak pattern holds. If pressed on shape:
+magnitude robustness shown, shape validation is next via the comparison harness.
 -->
 
 ---
 
-## Marginal abatement cost — all storage now cost-negative
+## Marginal abatement cost — all storage cost-negative
 
-On the **corrected (symmetric-heat)** model, abatement cost vs S0 against the
-**UK ETS price of £49.41/tCO₂** (2026):
+On the **corrected (symmetric-heat) model, counting total emissions** (grid
+electricity + boiler gas) vs S0, against the **UK ETS price £49.41/tCO₂**:
 
-| Scenario | MAC (£/tCO₂) | Reading |
-|---|---:|---|
-| S1: PV + BESS | −1,809 | <span class="ok">cost-negative</span> |
-| S2: PV + PCM TES | −2,582 | <span class="ok">cost-negative</span> |
-| S3: PV + H₂ | −551 | <span class="ok">cost-negative</span> |
-| **S4: Full Hybrid** | **−1,660** | <span class="ok">cost-negative, lowest total cost</span> |
+<div class="small">
 
-With a fair thermal boundary, **every storage configuration abates carbon at
-negative cost** — well below the carbon price. The full hybrid delivers the
-most abatement *and* the lowest cost.
+| Scenario | CO₂ abated vs S0 (t/yr) | MAC (£/tCO₂) |
+|---|---:|---:|
+| S1: PV + BESS | 32.9 | −2,155 |
+| **S2: PV + PCM TES** | **189.5 (most)** | −241 |
+| S3: PV + H₂ | 14.8 | −1,581 |
+| **S4: Full Hybrid** | 156.5 | −645 **(cheapest)** |
+
+</div>
+
+**All four abate at negative cost.** **S2 cuts the most CO₂** (its heat pump
+displaces ~1,650 MWh of boiler gas); **S4 is the cheapest overall.** No single
+scenario wins on both — the trade-off is the point.
+
+<span class="small">*MAC magnitudes depend on the gas factor (0.183 tCO₂/MWh) and boiler
+efficiency assumed; ordering and the all-negative result are robust. Source:
+`verify_total_emissions_mac.py`.*</span>
 
 <!--
-SPEAKER NOTE: This supersedes the old MAC slide (which, on the asymmetric model,
-showed S2/S4 as expensive). Source: fix_symmetric_heat.py re-run. Honest note: the
-earlier positive-MAC "objective-function trap" framing was an artefact of the
-unequal heat boundary; the trap argument now rests on the tariff-dependent PEAK
-result, which still holds and is the cleaner vehicle for it.
+SPEAKER NOTE: CORRECTED slide. The earlier version wrongly measured CO2 as
+solar-displacement only, which ignored the heat pump's grid draw and the boiler
+gas it displaces. On total emissions, S2 abates most, S4 is cheapest. Do NOT say
+"full hybrid delivers the most abatement" — that was the error. If asked about
+S2's small-looking -241: it rests on a LARGE abatement (189.5 t), so it is robust,
+unlike the earlier -2,582 which rested on 17.7 t.
 -->
 
 ---
 
-## Paper 2 (RSER review) — first output, well-architected
+## The systematic review (RSER) — first output, well-architected
 
 **"From passive estates to flexible generators: a systematic review of UK business
 parks in electricity markets."**
@@ -307,18 +313,38 @@ number I can't regenerate."
 ## Where I am and what's next
 
 **Done & defensible**
-- Modelling paper: numerically sound, internally consistent, stress-tested
+- Modelling paper: method sound; **re-run pending agreement on the fixes**
+  (heat boundary, export sign, CO₂ factor)
 - Review paper: architected, every verifiable claim checked
 
 **Immediate next steps**
 1. <span class="hl">Ingest real Eden Campus demand</span> → run comparison harness
    → re-run model (pipeline ready)
 2. Fill RSER review from screened corpus (the evidence phase)
-3. Paper 2 (co-optimised dispatch) & Paper 3 (peak-aware thermal storage)
+3. Next modelling papers: co-optimised dispatch & peak-aware thermal storage
 
 <!--
 SPEAKER NOTE: End on forward momentum. The real data is the natural next milestone
-and you're ready for it — invite them to share it. Close in ~30 seconds.
+and you're ready for it — invite them to share it.
+-->
+
+---
+
+## What I need from you
+
+1. **Agree the model fixes** before I re-run the full analysis:
+   - symmetric heat boundary (+ boiler sizing 600→800 kW)
+   - export price sign (enable SEG export)
+   - CO₂ factor (which DESNZ 2023 figure — generation vs consumption?)
+2. **Metered Eden Campus demand** — the single biggest step to validation;
+   the ingest pipeline is ready for it.
+3. **A second screener** for the systematic review (dual-screening for Cohen's κ).
+4. **Authorship & target-journal confirmation** for both outputs.
+
+<!--
+SPEAKER NOTE: Make the asks explicit and concrete — supervisors respond well to a
+clear decision list. #1 is the one you need before any re-run; #2 unblocks
+validation; #3 is required for the review's method; #4 is housekeeping.
 -->
 
 ---
@@ -332,7 +358,7 @@ and you're ready for it — invite them to share it. Close in ~30 seconds.
 - `Paper1_Eden_Campus_Manuscript.docx` — modelling paper
 - `generate_manuscript_tables.py`, `stress_test_demand_sensitivity.py` — reproducible results
 - `paper1_RSER_review/` — review sections + verification records
-- `REVIEW_2026-11-07…md` — independent editorial review
+- `REVIEW_2026-11-07…md` — editorial review (AI-assisted, cross-checked against sources)
 - `data_prep.py`, `ingest_real_demand.py`, `compare_demand_synthetic_vs_real.py` — data pipeline
 
 </div>
