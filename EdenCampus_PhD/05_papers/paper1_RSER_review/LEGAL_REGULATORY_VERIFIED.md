@@ -145,3 +145,99 @@ factually sound; four need a date/term refinement (Scotland amendment note, P415
 implemented, DFS date, REMA = RNP) and the fast-moving NI/DUoS items should be
 re-checked immediately before submission. No claim was found to be wrong in
 substance.
+
+
+---
+
+# Addendum (7 Nov 2026) — Standard methodology references & §1 emissions claim
+
+## Section 3 — methodology references (corpus-independent, quote-safe)
+
+These are the standard named-source citations for the method. All confirmed;
+drop the `[REF]` placeholders and insert:
+
+- **PRISMA 2020 statement:** Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA
+  2020 statement: an updated guideline for reporting systematic reviews. *BMJ*
+  2021;372:n71. doi:10.1136/bmj.n71.
+- **PRISMA 2020 explanation & elaboration (optional companion):** Page MJ, Moher
+  D, Bossuyt PM, et al. *BMJ* 2021;372:n160. doi:10.1136/bmj.n160.
+- **PRISMA-S (search reporting):** Rethlefsen ML, Kirtley S, Waffenschmidt S, et
+  al. PRISMA-S: an extension to the PRISMA Statement for reporting literature
+  searches in systematic reviews. *Systematic Reviews* 2021;10:39.
+  doi:10.1186/s13643-020-01542-z.
+- **Rayyan (screening tool):** Ouzzani M, Hammady H, Fedorowicz Z, Elmagarmid A.
+  Rayyan — a web and mobile app for systematic reviews. *Systematic Reviews*
+  2016;5:210. doi:10.1186/s13643-016-0384-4.
+- **Cohen's κ (inter-rater agreement):** Cohen J. A coefficient of agreement for
+  nominal scales. *Educational and Psychological Measurement* 1960;20(1):37–46.
+  doi:10.1177/001316446002000104. (Optional interpretation companion: McHugh ML.
+  Interrater reliability: the kappa statistic. *Biochem Med* 2012;22(3):276–82.)
+
+→ Resolves 5 of the 8 Section 3 `[REF]`s. The remaining 3 (database landing
+references for Scopus / Web of Science Core Collection / IEEE Xplore) are trivial
+— cite each provider's standard citation page.
+
+## Section 1 — commercial-emissions claim ⚠️ NEEDS RE-SOURCING / RE-WORDING
+
+**Claim (§1.2):** "Commercial-sector emissions are reported to have risen since
+1990, in contrast with sharp reductions achieved in the public sector
+[VERIFY: commercial emissions +5% since 1990 vs public sector −47%]."
+
+**Finding:** I could **not** confirm the exact "+5% commercial / −47% public"
+split in an official DESNZ/CCC/ONS source. What is confirmable:
+- Overall UK GHG emissions are ~43% below 1990 (ONS/DESNZ) — a *whole-economy*
+  figure, not the commercial/public split.
+- The **direction** of the commercial claim is corroborated by industry analysis:
+  CBRE (2023) reports UK **commercial real estate** cut emissions by only ~5% by
+  2020 vs 1990, and were **~2% higher in 2019** than 1990 — i.e. essentially flat/
+  slightly up over three decades. This supports "commercial decarbonised slowly /
+  barely," but it is a **CBRE** figure, not a government statistic, and it is
+  "~5% *reduction*," not "+5% *increase*."
+
+**Action (one of):**
+1. **Re-word to what's defensible** without the precise split, e.g.: "Commercial
+   buildings have decarbonised markedly more slowly than the economy as a whole —
+   UK commercial real-estate emissions were essentially flat between 1990 and 2019
+   [REF: CBRE 2023] — in contrast with the ~43% whole-economy reduction over the
+   same period [REF: DESNZ/ONS]." (Cite CBRE for the commercial-flatness point.)
+2. **Or locate the exact +5%/−47% split** in a DESNZ "emissions by SIC / by
+   sector" table or a CCC buildings report before stating those two numbers.
+
+**Do not** state "+5% commercial vs −47% public" as drafted until sourced — the
+"−47% public sector" figure in particular was not found in this check and must be
+located or dropped.
+
+
+---
+
+# Addendum 2 (7 Nov 2026) — Section 4 typology exemplar `[CHECK]`s
+
+Public profiles confirmed for the named exemplars; each fits its assigned type.
+
+- **T1 Multi-let office park — Edinburgh Park, Edinburgh ✅.** A long-established
+  multi-tenant business-park community west of Edinburgh city centre, mixed office
+  occupiers with shared estate infrastructure (parking, café/hotel/gym, transport
+  links). Fits T1 (multi-let office, coordinated estate management).
+  *Cite:* edinburghpark.com / myedinburghpark.com estate profile.
+- **T2 Industrial & logistics — Eurocentral, North Lanarkshire ✅.** One of
+  Scotland's largest industrial estates (~650 acres) off the M8 between Glasgow and
+  Edinburgh, with Scotland's first Channel Tunnel Rail Freight Terminal; road/rail
+  freight, logistics, warehousing. Fits T2 (industrial/logistics, large-footprint
+  sheds, higher per-unit load). *Cite:* Eurocentral estate profile / North
+  Lanarkshire LDP (designated Strategic Business Centre).
+- **T3 Innovation campus — Eden Campus (Fife), MSIP (Dundee), Catalyst (Belfast)
+  ✅.** All three are anchor-institution-led innovation campuses with coordinated
+  single management and explicit net-zero/innovation mandates: MSIP is a 32-ha
+  Michelin / Dundee City Council / Scottish Enterprise joint venture; Catalyst is a
+  25-acre independent not-for-profit science park in Titanic Quarter, Belfast.
+  Fits T3. *Cite:* msipdundee.com; wearecatalyst.org; Eden Campus (Univ. St Andrews).
+
+- **T5 Single-owner corporate campus — STILL MISSING `[CHECK]`.** No exemplar was
+  named in the draft and I did not assign one (naming a specific company's
+  single-owner campus needs care — pick a well-documented UK corporate HQ campus
+  with a public energy/estate profile, e.g. a named pharma/tech/finance HQ campus).
+  **Action (yours):** choose a T5 exemplar you can cite from a public source, or
+  state T5 as a defined type without a named exemplar if none is cleanly citable.
+
+→ Resolves 3 of the 4 Section 4 `[CHECK]`s (T1, T2, T3). T5 exemplar remains open
+and is author's choice.

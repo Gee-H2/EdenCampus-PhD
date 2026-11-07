@@ -89,16 +89,25 @@ magnitude until sourced. This is the evidential core of the review.
 - 12 `[DATA]`: the PRISMA flow counts, κ value, and the seven search strings'
   hit counts — **only generatable once you run the screening.** Cannot be invented.
 
-### 🟡 FACT-CHECKABLE — I CAN DO IF YOU WANT
+### 🟡 FACT-CHECKABLE — DONE THIS SESSION (see LEGAL_REGULATORY_VERIFIED.md addenda)
 
-- §3 standard methodology references (PRISMA/PRISMA-S/Rayyan/Cohen) — supply full
-  citations.
-- §4 exemplar `[CHECK]`s (Edinburgh Park, Eurocentral, Catalyst, a T5 campus) —
-  verify against public profiles.
-- §1 commercial-emissions "+5% since 1990 vs public sector −47%" `[VERIFY]` —
-  locate a DESNZ/BEIS source or mark for removal.
+- ✅ **§3 standard methodology references** — full citations supplied for PRISMA
+  2020 (Page 2021, BMJ n71), PRISMA-S (Rethlefsen 2021), Rayyan (Ouzzani 2016),
+  Cohen's κ (Cohen 1960). Resolves 5 of 8 §3 `[REF]`; only the 3 database landing
+  refs remain (trivial).
+- ✅ **§4 exemplar `[CHECK]`s** — Edinburgh Park (T1), Eurocentral (T2), Eden
+  Campus / MSIP / Catalyst (T3) all confirmed against public profiles. **T5
+  exemplar still open** — author's choice of a citable single-owner corporate
+  campus.
+- ⚠️ **§1 commercial-emissions "+5% / −47%"** — NOT confirmed as drafted. Direction
+  corroborated (CBRE 2023: commercial real estate ~flat vs 1990) but the exact
+  split, esp. "−47% public," not found. Re-word to the CBRE-backed "decarbonised
+  slowly" claim or locate the exact DESNZ/CCC split. Do not state as-is.
+
+### 🟡 STILL FACT-CHECKABLE — defer to near submission
+
 - NI-stack / DUoS DCP228 / LDES cap-and-floor / CM DSR / frequency `[VERIFY]`
-  date-stamps (§6) — confirm current status near submission.
+  date-stamps (§6) — confirm current status immediately before submission.
 
 ---
 
