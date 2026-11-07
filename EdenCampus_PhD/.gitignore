@@ -25,3 +25,5 @@ __pycache__/
 !*.xlsx
 !*.png
 !*.pdf
+# Rendered presentation intermediates
+05_papers/PhD_Progress_Presentation.html
