@@ -65,7 +65,8 @@ magnitude until sourced. This is the evidential core of the review.
 
 **Section 4 — 26 `[REF]` + 3 `[DATA]` + 4 `[CHECK]`.**
 - 26 `[REF]`: data-source documentation (VOA SCAT, Scottish Assessors, LPS,
-  ND-NEED, EPC, ECR/Open Networks, Heat Networks DB, SSEN DFES, SONI TES),
+  ND-NEED, EPC, ECR/Open Networks, Heat Networks DB, SPEN DFES (SP Distribution,
+  covers Fife), SONI TES),
   split-incentive literature, campus-microgrid literature.
 - 3 `[DATA]`: park counts / floor areas / capacities per type — **requires
   running the VOA/Assessors/LPS clustering**. Until then Table 3 stays qualitative.

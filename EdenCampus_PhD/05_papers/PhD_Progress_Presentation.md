@@ -72,28 +72,79 @@ committed-data point matters — it's a strength the dataset-holder will appreci
 
 ---
 
-## Headline result — S1 (PV + Battery) is operationally optimal
+## Headline result — and a correction I found while preparing this
+
+In the **committed** model, heat was only costed in S2 & S4 — an **unequal
+comparison**. When I apply the heat demand to **all five** scenarios (fair, like-for-like):
 
 <div class="small">
 
-| Scenario | Solar Fraction (%) | CO₂ Saved (t/yr) | Peak Reduction (%) | Annual Cost (£k) |
-|---|---:|---:|---:|---:|
-| S0: PV Only | 31.8 | 178.0 | 1.4 | 539.0 |
-| **S1: PV + BESS** | **38.8** | **217.2** | **39.7** | **468.0** |
-| S2: PV + PCM TES | 35.0 | 195.7 | 1.4 | 683.3 |
-| S3: PV + H₂ LDES | 39.4 | 220.5 | 8.8 | 515.6 |
-| S4: Full Hybrid | 42.7 | 238.8 | 40.0 | 628.4 |
+| Scenario | Annual cost — committed (£k) | **Annual cost — corrected (£k)** | Saving vs S0 |
+|---|---:|---:|---:|
+| S0: PV Only | 539.0 | 729.0 | — |
+| S1: PV + BESS | 468.0 | 658.1 | +70.9 |
+| S2: PV + PCM TES | 683.3 | 683.3 | +45.7 |
+| S3: PV + H₂ LDES | 515.6 | 705.6 | +23.4 |
+| **S4: Full Hybrid** | 628.4 | **628.1** | **+100.9** |
 
 </div>
 
-**S1 saves £71k/yr (£1.42M over 20 yr)** vs baseline, cuts 217 tCO₂/yr, and
-reduces peak grid import by ~40%.
+**Corrected ranking: S4 (full hybrid) is cheapest** — not S1. Every storage
+scenario saves vs the PV-only baseline.
 
 <!--
-SPEAKER NOTE: This is the money slide. Numbers are from the generated table
-(manuscript_table3). If asked "why does S1 beat S4?" — S4 adds heat-pump electrical
-load that, under this tariff, raises cost; storage of electricity (S1) is the
-cheapest marginal improvement. Let them probe.
+SPEAKER NOTE: This is now the honest headline. Lead with the fact you FOUND and
+FIXED an error — that is a strength. Reproduced by fix_symmetric_heat.py: control
+run matches committed costs to the penny, then symmetric heat flips the ranking.
+S4 cheapest because heat-pump scenarios serve heat at ~£93/MWh vs £110 boiler;
+adding heat to S0/S1/S3 (boiler-only) raises their cost ~£190k. Boiler resized
+600->800 kW so boiler-only scenarios can meet the 756 kW heat peak.
+-->
+
+---
+
+## What this changes — and what still holds
+
+**Changes (honestly):**
+- <span class="hl">Cost ranking flips</span>: S4 cheapest, not S1. The old
+  "S1 optimal" was an artefact of the unequal thermal boundary.
+- <span class="hl">Abatement costs</span>: all storage scenarios now
+  <span class="ok">cost-negative</span> (MAC −£551 to −£2,582/tCO₂).
+
+**Still holds (re-verified):**
+- <span class="ok">S1 still saves £71k/yr vs S0</span> (both now carry heat).
+- <span class="ok">Tariff-dependent heat-pump peak finding</span> — unchanged
+  (it's electricity-peak only).
+- <span class="ok">Demand-robustness</span> — structural conclusions survive ±30%.
+
+> **I'm bringing this to you as a decision:** agree the fix (incl. boiler sizing)
+> before I re-run the full analysis and update the manuscript.
+
+<!--
+SPEAKER NOTE: THE key slide for a supervisor meeting. Posture: found it, verified
+it, understand the cause, asking for sign-off before the full re-run. Note the
+separate export-sign issue on the next slides too. This is PhD-level rigour.
+-->
+
+---
+
+## Two further model issues found (for discussion)
+
+- **Grid export never happens.** Export carries the wrong price sign, so the
+  optimiser never exports — S0 discards ~266 MWh/yr of surplus solar (~26%).
+  *Fix: correct the export sign to a positive SEG payment.*
+- **CO₂ factor is dated.** Model uses **0.233 kg/kWh**; the 2023 DESNZ generation
+  factor is **~0.207** — so current CO₂ figures are ~11% high.
+  *Fix: adopt the chosen DESNZ 2023 factor (decision needed: generation vs consumption).*
+- **Grid operator corrected.** Fife/Eden Campus is **SP Energy Networks (SPD)**,
+  not SSEN — repo note reversed (SPEN is building a substation at Guardbridge,
+  next to Eden Campus).
+
+<!--
+SPEAKER NOTE: Present as "found, diagnosed, fixable — none change the method, only
+the numbers." The export and CO2 items are quick fixes; the SPEN correction is
+already done in the review. All independently verified against primary sources /
+re-run, committed to the repo (fix_symmetric_heat.py, boundary checks).
 -->
 
 ---
@@ -142,43 +193,53 @@ evidence that it doesn't matter to the conclusions.
 
 ## Why the limitation doesn't change my conclusions
 
-**Stress test:** re-ran all five scenarios with demand scaled **0.70× – 1.30×**
+**Stress test:** ran all five scenarios with demand scaled **0.70× – 1.30×**
 (1,681–3,121 MWh/yr) — bracketing where real data could plausibly land.
 
 | Conclusion | Across the whole ±30% band |
 |---|---|
-| S1 is cost-optimal | <span class="ok">YES — at every scale</span> |
-| Cost ranking stable | <span class="ok">YES — S1 < S3 < S0 < S4 < S2 throughout</span> |
+| Cost ranking stable | <span class="ok">YES — ordering preserved at every scale</span> |
 | Peak-reduction pattern | <span class="ok">YES — S1/S4 high, S2/S3 low throughout</span> |
+| Storage beats PV-only | <span class="ok">YES — at every scale</span> |
 
-> My conclusions are **structural**, not artefacts of the demand calibration.
+> Conclusions are **structural**, not artefacts of the demand calibration.
 > Real data will refine magnitudes — it will not reverse the findings.
 
+<span class="small">*Note: stress test was run on the pre-fix model; I will re-run it
+on the corrected symmetric-heat model — the robustness logic is unchanged.*</span>
+
 <!--
-SPEAKER NOTE: This is your shield. Reproducible: stress_test_demand_sensitivity.py.
-If pressed: "I scaled magnitude uniformly; shape validation is the next step, and
-the comparison harness is built for exactly that." Honest about what's shown vs not.
+SPEAKER NOTE: This is your shield, but be honest: the committed stress test used the
+asymmetric model, so I've dropped the specific "S1 cost-optimal" line (that changes
+to S4 under the fix) and kept the claims that are basis-independent. Say you'll
+re-run it on the corrected model. If pressed on shape: magnitude robustness shown,
+shape validation is next via the comparison harness.
 -->
 
 ---
 
-## Marginal abatement cost — reinforces the trap
+## Marginal abatement cost — all storage now cost-negative
 
-Abatement cost vs S0, against the **UK ETS price of £49.41/tCO₂** (2026):
+On the **corrected (symmetric-heat)** model, abatement cost vs S0 against the
+**UK ETS price of £49.41/tCO₂** (2026):
 
 | Scenario | MAC (£/tCO₂) | Reading |
 |---|---:|---|
-| **S1: PV + BESS** | **−1,811** | <span class="ok">cost-negative — paid to decarbonise</span> |
-| **S3: PV + H₂** | **−551** | <span class="ok">cost-negative</span> |
-| S4: Full Hybrid | +1,470 | <span class="hl">expensive — far above carbon price</span> |
-| S2: PV + PCM TES | very high | <span class="hl">not cost-effective (tiny ΔCO₂)</span> |
+| S1: PV + BESS | −1,809 | <span class="ok">cost-negative</span> |
+| S2: PV + PCM TES | −2,582 | <span class="ok">cost-negative</span> |
+| S3: PV + H₂ | −551 | <span class="ok">cost-negative</span> |
+| **S4: Full Hybrid** | **−1,660** | <span class="ok">cost-negative, lowest total cost</span> |
 
-Electrical storage (S1, S3) abates **below zero cost**; heat-pump options cost far
-more per tonne than any carbon market — the objective-function trap, quantified.
+With a fair thermal boundary, **every storage configuration abates carbon at
+negative cost** — well below the carbon price. The full hybrid delivers the
+most abatement *and* the lowest cost.
 
 <!--
-SPEAKER NOTE: Don't claim "all beat the ETS price" — that's wrong and they may know
-it. The split IS the story. Source: MAC_recomputed.md, UK ETS £49.41 from gov.uk.
+SPEAKER NOTE: This supersedes the old MAC slide (which, on the asymmetric model,
+showed S2/S4 as expensive). Source: fix_symmetric_heat.py re-run. Honest note: the
+earlier positive-MAC "objective-function trap" framing was an artefact of the
+unequal heat boundary; the trap argument now rests on the tariff-dependent PEAK
+result, which still holds and is the cleaner vehicle for it.
 -->
 
 ---
@@ -293,32 +354,40 @@ below (not part of the rendered deck in presenter mode) for prepared answers.
 
 <div class="small">
 
-**"Your demand is synthetic — how do you know anything?"**
-Stated as the primary limitation. Stress test shows S1-optimal, ranking, and
-peak findings hold across ±30% demand. Conclusions are structural; magnitudes
-will refine with your data. Pipeline is built to ingest it with no code change.
+**"Why is S4 the cheapest, not S1?"**
+On a fair thermal boundary (heat costed in all scenarios), the heat-pump scenarios
+serve heat at ~£93/MWh (elec ÷ COP 3) vs £110 gas boiler, so S4 ends up cheapest
+(£628k). The old "S1 optimal" result costed heat only in S2/S4 — an error I found,
+reproduced, and fixed (`fix_symmetric_heat.py`). S1 still saves £71k/yr vs S0.
 
-**"Isn't this just a simulation, not a digital twin?"**
-Correct distinction. It's a digital-twin **framework** demonstrated with synthetic
-inputs. The bidirectional measured-data coupling is the next phase — which is
-exactly why the ingest/validation harness already exists.
-
-**"Why is S1 better than the full hybrid S4?"**
-Under the capacity-charge tariff, battery storage of electricity is the cheapest
-marginal improvement. S4 adds heat-pump electrical load that raises cost more than
-its extra CO₂/solar-fraction benefit — see the MAC split.
+**"How do I know the fix is right?"**
+Control run reproduces the committed costs to the penny; the symmetric re-run flips
+the ranking. Boiler resized 600→800 kW so boiler-only scenarios meet the 756 kW
+heat peak. All in the repo, re-runnable.
 
 **"Your peak finding — 35% or 40%?"**
 Both, and that's the point: +35% peak *increase* under energy-only tariff;
-~40% *reduction* under a capacity charge. Same system, opposite outcomes, tariff-driven.
+~40% *reduction* under a capacity charge. Same system, opposite outcomes,
+tariff-driven. Unaffected by the heat-boundary fix (it's electricity-peak only).
+
+**"Why does the model never export?"**
+A sign error on the export price — found, flagged, quick fix. It means S0 currently
+discards ~26% of its solar; correcting it will change absolute numbers, not the
+ranking.
+
+**"Isn't this just a simulation, not a digital twin?"**
+Correct distinction. It's a digital-twin **framework** demonstrated with synthetic
+inputs; the measured-data coupling is the next phase — the ingest/validation
+harness already exists.
 
 **"Is the review finished?"**
-No — it's architected and every fact-checkable claim is verified. The evidence
-phase (corpus screening, data-spine counts) is the remaining systematic-review work.
+No — it's architected and every fact-checkable claim is verified (incl. correcting
+the Fife DNO to SPEN). The evidence phase (corpus screening, data-spine counts)
+remains.
 
-**"Commercial-emissions +5% / public −47% claim?"**
-Direction corroborated (CBRE 2023: commercial real estate ~flat since 1990); exact
-split not yet sourced — flagged, will re-word or re-source before submission.
+**"Demand is synthetic — how do you know anything?"**
+Stress test shows the structural conclusions hold across ±30% demand. Pipeline
+built to ingest your real data with no code change.
 
 </div>
 

@@ -37,9 +37,11 @@ provide flexibility through defined products (6.2–6.4).
 Under the ENA Open Networks programme, DNOs procure local flexibility through a
 standard product suite — **Sustain, Secure, Dynamic, and Restore** — via
 platforms [REF/VERIFY: ENA Open Networks product definitions]. For the Fife/Eden
-Campus exemplar these are procured by **SSEN** (the relevant DNO for the North of
-Scotland licence area — *not* SPEN, which covers Central and Southern Scotland;
-see DATA_SPINE_ACCESS_VERIFICATION.md) [VERIFY]. Local markets are the most
+Campus exemplar these are procured by **SP Energy Networks (SP Distribution)** —
+the relevant DNO for Fife, which sits in the SPD licence area covering Central and
+Southern Scotland (confirmed against SPEN's St Andrews reinforcement document; SPEN
+is also investing £20m in the Fife network, including a new primary substation at
+Guardbridge adjacent to Eden Campus) [VERIFY]. Local markets are the most
 natural entry point for estate flexibility because they are distribution-connected
 and location-specific.
 
@@ -108,7 +110,7 @@ face them least; fragmented multi-tenant estates (T1, T2) most.
 | Service | Route | Best-fit type(s) | Key barrier |
 |---|---|---|---|
 | Peak-charge avoidance | Implicit (DUoS) | All (esp. T3/T5) | Data visibility (pre-MHHS) |
-| Local flexibility | DSO products (SSEN etc.) | T2, T3 | Multi-MPAN aggregation |
+| Local flexibility | DSO products (SPEN etc.) | T2, T3 | Multi-MPAN aggregation |
 | Balancing / wholesale | BM via VLP (P344/P415) | T3, T5 | Aggregation, metering |
 | Demand reduction | DFS (year-round) | T1, T3 | Low barrier — good entry |
 | Capacity | Capacity Market DSR | T2, T3 | Firmness of commitment |
@@ -125,8 +127,9 @@ shaded by fit).
   a reviewer will check P415 status, REMA July-2025 decision, DFS year-round, LDES
   windows, and TCR/MHHS timelines. Confirm each against the Ofgem/NESO/DESNZ
   primary source before submission.
-- **SSEN not SPEN** for the Fife exemplar — already corrected in Section 4; keep
-  consistent here and check whether GB-wide coverage means naming multiple DNOs.
+- **SPEN (SP Distribution) is the Fife DNO** — corrected from an earlier erroneous
+  "SSEN" attribution (see Section 4 and DATA_SPINE_ACCESS_VERIFICATION.md); keep
+  consistent and check whether GB-wide coverage means naming multiple DNOs.
 - Table 5 fit ratings must be justified from Section 4.3 capability + these routes.
 - ~1,500 words scaffolded; expand each product with participation detail and
   evidence to reach ~2,800.

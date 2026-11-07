@@ -42,8 +42,9 @@ A named grey-literature corpus supplements the database search, reflecting that
 much of the market and regulatory evidence in this field is published by system
 bodies rather than in journals. The corpus comprises: **Ofgem, NESO, the Energy
 Networks Association (ENA), DESNZ, SP Energy Networks (SPEN), SSEN, SONI, and
-Piclo** [VERIFY: confirm the final list — note SSEN is the relevant DNO for the
-Fife/Eden Campus exemplar, not SPEN; include both if GB-wide coverage is intended].
+Piclo** [VERIFY: confirm the final list — note **SPEN (SP Distribution) is the
+relevant DNO for the Fife/Eden Campus exemplar**; SSEN is retained for GB-wide /
+north-of-Scotland coverage].
 Grey sources were identified by structured searching of each body's publication
 library and are reported per PRISMA-S [REF].
 

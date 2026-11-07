@@ -68,10 +68,13 @@ and planned heat networks, several of which serve business parks and campuses
 [REF: DESNZ Heat Networks Planning Database].
 
 **Scenario and planning data.** Sub-national energy scenarios provide the forward
-view. SSEN's Distribution Future Energy Scenarios (DFES) for the North of Scotland,
-reported at local-authority resolution, cover Fife — the region containing the
-Eden Campus exemplar used later in this review [REF: SSEN DFES North of Scotland].
-(Note: Fife is in SSEN/SHEPD licence area, not SPEN — see
+view. SPEN's Distribution Future Energy Scenarios (DFES) for its SP Distribution
+licence area, reported at local-authority resolution, cover Fife — the region
+containing the Eden Campus exemplar used later in this review [REF: SPEN DFES].
+(Note: Fife / St Andrews / Eden Campus is in the **SP Energy Networks — SP
+Distribution (SPD)** licence area, confirmed against SPEN's St Andrews primary
+reinforcement document and SPEN's £20m Fife investment including a new primary
+substation at Guardbridge beside Eden Campus — see
 DATA_SPINE_ACCESS_VERIFICATION.md.) For the Northern Ireland
 comparator, SONI's Tomorrow's Energy Scenarios workbook provides the equivalent
 projection [REF: SONI TES].

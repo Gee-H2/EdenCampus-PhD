@@ -65,3 +65,26 @@ objective-function-trap argument** rather than giving a single headline number:
   exact £8,153 figure.
 - CO₂ factor 0.233 tCO₂/MWh grid (as per model); if the grid factor is updated the
   Δ-CO₂ and MAC move proportionally.
+
+
+---
+
+## SUPERSEDED for cross-scenario comparison (7 Nov 2026)
+
+The MAC table above was computed on the **committed (asymmetric-heat)** model,
+where heat is costed only in S2/S4. That boundary is unequal across scenarios
+(see `fix_symmetric_heat.py`). On the **corrected symmetric-heat** model (heat in
+all scenarios), the MAC vs S0 becomes:
+
+| Scenario | MAC (£/tCO₂), symmetric heat |
+|---|---:|
+| S1: PV + BESS | −1,809 |
+| S2: PV + PCM TES | −2,582 |
+| S3: PV + H₂ LDES | −551 |
+| S4: Full Hybrid | −1,660 |
+
+i.e. **all storage scenarios are cost-negative abatement** under a fair thermal
+boundary. The earlier positive MAC for S2/S4 was an artefact of the asymmetry.
+Use the symmetric figures once the fix is agreed and the full analysis re-run.
+The objective-function-trap argument should rest on the **tariff-dependent peak**
+result (unaffected by this fix), not the MAC split.
