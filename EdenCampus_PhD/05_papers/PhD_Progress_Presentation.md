@@ -21,7 +21,7 @@ style: |
 
 ### A Multi-Vector Digital Twin for Decarbonising Business Parks
 
-**Gift Udoh** · CDT-GIF · Heriot-Watt University / University of St Andrews
+**Gift Udoh** · CDT-GIF · Heriot-Watt University · Eden Campus (University of St Andrews)
 
 Progress review — the modelling paper (Applied Energy) & the systematic review (RSER)
 
@@ -106,20 +106,13 @@ adding heat to S0/S1/S3 (boiler-only) raises their cost ~£190k. Boiler resized
 ## What this changes — and what still holds
 
 **Changes (honestly):**
-- <span class="hl">Cost ranking flips</span>: S4 cheapest, not S1. The old
-  "S1 optimal" was an artefact of the unequal thermal boundary.
-- <span class="hl">Abatement costs</span>: on total emissions, all storage
-  scenarios still <span class="ok">cost-negative</span> (MAC −£241 to −£2,155/tCO₂);
-  **S2 abates the most CO₂, S4 is cheapest.**
+- <span class="hl">Cost ranking flips</span>: S4 cheapest, not S1 (artefact of the unequal heat boundary).
+- <span class="hl">Abatement</span>: all storage still <span class="ok">cost-negative</span>; **S2 cuts most CO₂, S4 cheapest.**
 
 **Still holds (re-verified):**
-- <span class="ok">S1 still saves £71k/yr vs S0</span> (both now carry heat).
-- <span class="ok">Tariff-dependent heat-pump peak finding</span> — unchanged
-  (it's electricity-peak only).
-- <span class="ok">Demand-robustness</span> — structural conclusions survive ±30%.
+- <span class="ok">S1 still saves £71k/yr vs S0</span>; tariff-dependent peak finding unchanged; robust across ±30% demand.
 
-> **I'm bringing this to you as a decision:** agree the fix (incl. boiler sizing)
-> before I re-run the full analysis and update the manuscript.
+> **Bringing this to you as a decision:** agree the fix (incl. boiler sizing) before I re-run.
 
 <!--
 SPEAKER NOTE: THE key slide for a supervisor meeting. Posture: found it, verified
@@ -235,17 +228,17 @@ electricity + boiler gas) vs S0, against the **UK ETS price £49.41/tCO₂**:
 displaces ~1,650 MWh of boiler gas); **S4 is the cheapest overall.** No single
 scenario wins on both — the trade-off is the point.
 
-<span class="small">*MAC magnitudes depend on the gas factor (0.183 tCO₂/MWh) and boiler
-efficiency assumed; ordering and the all-negative result are robust. Source:
-`verify_total_emissions_mac.py`.*</span>
+<span class="small">*Emissions: grid 0.233, gas 0.183 tCO₂/MWh, boiler 100% efficient; at 90%,
+S2 −£205/t (223 t), S4 −£565/t (179 t). Order & all-negative result hold either way.*</span>
 
 <!--
 SPEAKER NOTE: CORRECTED slide. The earlier version wrongly measured CO2 as
-solar-displacement only, which ignored the heat pump's grid draw and the boiler
-gas it displaces. On total emissions, S2 abates most, S4 is cheapest. Do NOT say
-"full hybrid delivers the most abatement" — that was the error. If asked about
-S2's small-looking -241: it rests on a LARGE abatement (189.5 t), so it is robust,
-unlike the earlier -2,582 which rested on 17.7 t.
+solar-displacement only. On total emissions, S2 abates most, S4 is cheapest.
+Do NOT say "full hybrid delivers the most abatement". If asked about S2's small
+MAC: it rests on a LARGE abatement (189.5 t at 100% boiler / 223 t at 90%), so it
+is robust. Boiler-efficiency note: counting boiler heat 1:1 as gas = 100%
+efficient (optimistic); 90% shifts S2/S4 magnitudes only, not the ordering.
+Source: verify_total_emissions_mac.py (committed, re-runnable).
 -->
 
 ---
@@ -312,7 +305,7 @@ number I can't regenerate."
 
 ## Where I am and what's next
 
-**Done & defensible**
+**Done**
 - Modelling paper: method sound; **re-run pending agreement on the fixes**
   (heat boundary, export sign, CO₂ factor)
 - Review paper: architected, every verifiable claim checked

@@ -125,3 +125,18 @@ if __name__ == "__main__":
 # tCO2/MWh here) and boiler efficiency (treated 1:1). A different gas/efficiency
 # assumption shifts the magnitudes (e.g. S2 between ~ -205 and -241) but not the
 # ordering or the all-negative conclusion. State the factor explicitly in the paper.
+
+# ---------------------------------------------------------------------------
+# BOILER-EFFICIENCY SENSITIVITY (7 Nov 2026):
+# The emissions calc above counts boiler heat 1:1 as gas burned => implicitly a
+# 100%-efficient boiler, which is optimistic. Applying a realistic 90% efficiency
+# (gas burned = heat_delivered / 0.90) changes only the boiler-heavy scenarios:
+#
+#   efficiency      S2 abated / MAC        S4 abated / MAC     S1, S3
+#   100% (as above) 189.6 t / -£241        156.5 t / -£645     unchanged
+#    90%            223.2 t / -£205        178.5 t / -£565     unchanged
+#
+# Ordering (S2 most CO2, S4 cheapest) and the all-negative conclusion hold under
+# both. State the assumed efficiency explicitly in the paper/slides. The £110/MWh
+# boiler COST may embed efficiency, but that does NOT carry into the emissions —
+# emissions must use gas burned, i.e. heat / efficiency.
