@@ -1,0 +1,6 @@
+Scenario,20-yr CO₂ Saved (tonnes),Annual Saving (£k/yr),20-yr Saving (£k)
+S0: PV Only,3560,,
+S1: PV + BESS,4344,71.0,1420.0
+S2: PV + PCM TES,3914,-144.3,-2886.0
+S3: PV + H2 LDES,4410,23.4,468.0
+S4: Full Hybrid,4776,-89.4,-1788.0

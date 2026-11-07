@@ -1,0 +1,6 @@
+Scenario,PV Generation (MWh),Grid Import (MWh),Solar Fraction (%),CO₂ Saved (t/yr),Annual Cost (£k)
+S0: PV Only,764.0,1636.9,31.8,178.0,539.0
+S1: PV + BESS,932.0,1495.6,38.8,217.2,468.0
+S2: PV + PCM TES,840.0,2122.2,35.0,195.7,683.3
+S3: PV + H2 LDES,946.3,1573.3,39.4,220.5,515.6
+S4: Full Hybrid,1024.7,1820.1,42.7,238.8,628.4
