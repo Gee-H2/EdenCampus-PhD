@@ -119,6 +119,20 @@ magnitude until sourced. This is the evidential core of the review.
    flow/κ. This is the critical path and only you can do it.
 2. **Run the data-spine clustering (Section 4 `[DATA]`).** Turns Table 3 from
    qualitative to quantitative and substantiates the "first characterisation" claim.
+   - **Method: DONE** — `cluster_business_parks.py` (DBSCAN 150 m / min-5 + scale
+     screen + 100–250 m sensitivity), self-tested on synthetic data.
+   - **Blocked only on obtaining the valuation data:**
+     - *England & Wales* — bulk download: voaratinglists.blob.core.windows.net
+       (rating list, needs postcode→coordinate geocoding).
+     - *Scotland* — NO bulk download. Three routes: (a) **supervisor / University
+       of St Andrews introduction** to the Fife Assessor (fastest — on the deck's
+       asks); (b) **formal extract/FOI request to the Fife Assessor** (draft email:
+       `DATA_REQUEST_fife_assessor.md`); (c) **OS/PSGA licence via the university
+       library/Digimap** for the Scotland-wide roll. For a first real run, Fife
+       alone is enough.
+     - *Northern Ireland* — LPS Non-Domestic Valuation List (finance-ni.gov.uk).
+   - **Licensing:** raw roll is OS/Crown-licensed — keep local, commit only
+     aggregated counts.
 3. **Fill §5 findings** stream-by-stream from the corpus (magnitudes first).
 4. **Add the standard/named `[REF]`s** (§3 methodology, data-source docs) — fast.
 5. **Date-stamp the remaining regulatory `[VERIFY]`s** (§6 NI/DUoS/LDES) at the end.

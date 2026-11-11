@@ -420,7 +420,13 @@ https://www.neso.energy/publications/future-energy-scenarios-fes
 
 ### Still open — only you can close these
 1. **Park counts (Table 3 `[DATA]`).** Needs the VOA/Assessors/LPS clustering to
-   be run. No count has been stated anywhere.
+   be run. No count has been stated anywhere. **Method is now built and tested**
+   (`cluster_business_parks.py`); it is blocked only on obtaining the valuation
+   data. England & Wales is a bulk download; **Scotland has no bulk download** —
+   get a Fife extract via a supervisor/University introduction or a formal request
+   to the Fife Assessor (draft: `DATA_REQUEST_fife_assessor.md`), or the
+   Scotland-wide roll via the university's OS/PSGA (Digimap) licence. Keep raw data
+   local (OS/Crown licence); commit only aggregated counts.
 2. **Clustering radius.** The 150 m radius and the 100–250 m sensitivity range in
    4.1 are proposed values, not results. Minimum cluster size (5) and the scale
    threshold come from your Section 2 definition. Confirm or change the radius
