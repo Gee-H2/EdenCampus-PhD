@@ -6,10 +6,14 @@ July 2025). Full report PDF (170 pp) downloaded from neso.energy/document/364541
 Figures below were extracted directly from that document — **use these, with the
 FES 2025 citation, rather than the skeleton's unverified numbers.**
 
-Pathway abbreviations: HT = Holistic Transition, EE = Electric Engagement,
-HE = Hydrogen Evolution, FB = Full-system Bridge (check exact FES 2025 pathway
-names against p.2 of the report). Column order in the system table: 2024, then the
-four 2050 pathways.
+Pathway names (CONFIRMED against NESO FES 2025, 11 Nov 2026): the three net-zero
+pathways are **Holistic Transition (HT), Electric Engagement (EE), and Hydrogen
+Evolution (HE)**; the fourth, **Falling Behind (FB)**, is a slower scenario that
+does NOT reach net zero. (Earlier drafts guessed "Full-system Bridge" — that was
+wrong; do not use it.) In the 2050 storage range 38–96 GW, the **38 GW lower bound
+is the Falling Behind (non-net-zero) value** — state that if a reviewer asks why
+the bottom of the range is so low. Column order in the system table: 2024, then
+the four 2050 pathways.
 
 ---
 
